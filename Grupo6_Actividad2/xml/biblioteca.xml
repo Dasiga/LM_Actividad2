@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- tipo_clase "informática | actualidad | ciencia "-->
+
+<biblioteca>
+    <!-- Estructura de un <libro> clasificacion = "novela | infantil | didáctico"-->
+    <libro id="L0000" clasificacion ="novela" tipo_clase ="científica" paginas="0">
+        <titulo>Titulo del libro</titulo>
+        <capitulo paginas="0">
+            <titulo>Titulo del capitulo</titulo>
+            <contenido enlace="https://www.google.es/">Lorem ipsum</contenido>
+        </capitulo>
+        <indice>Indice del libro</indice>
+        <sinopsis>Resumen del libro</sinopsis>
+    </libro>
+
+    <!-- Estructura de una <revista> clasificacion = "informática | corazón | coches | investigación | otras" -->
+    <revista id="R000" clasificacion = "otras" tipo_clase="actualidad" paginas="0">
+        <titulo>Título de la revista</titulo>
+        <numero>Número de la revista</numero>
+        <indice>Índice de contenido</indice>
+        <seccion paginas="0">
+            <contenido enlace="https://www.google.es/">Contenido de la revista</contenido>
+        </seccion>
+    </revista>
+
+    <!-- Estructura de un <periodico> clasificacion = "nacional | internaciona"-->
+    <periodico id="P000" clasificacion="nacional" tipo_clase="actualidad" fecha_publicacion="29/10/1997">
+        <indice>Indice periodico</indice>
+        <seccion tipo=""> <!-- tipo="economía | opinión | deportes | nacional |internacional" -->
+            <articulo autor="alguien"></articulo>
+            <contenido referencia="https://www.google.es/">Informacion</contenido>
+        </seccion>
+    </periodico>
+</biblioteca>
