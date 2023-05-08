@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <!-- Definimos <biblioteca> -->
+    <xs:element name="biblioteca">
+        <xs:complexType>
+            <!-- Contenedores de <biblioteca> : <libro> <revista> <periodico>-->
+            <xs:sequence>    
+                <xs:element name="libro" minOccurs="0" maxOccurs="unbounded"/>
+
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+     <!-- Definimos <libro> -->
+     <xs:element name="libro">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="titulo"/>                
+            </xs:sequence>
+        </xs:complexType>
+     </xs:element>
+</xs:schema>
+
+
+
+<!-- 
+
+
+
+
+
+-->
