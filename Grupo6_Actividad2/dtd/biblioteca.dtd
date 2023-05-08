@@ -13,7 +13,7 @@
 <!ELEMENT capitulo (titulo, contenido)>
 <!ELEMENT sinopsis (#PCDATA)>
 <!--atributos-->
-<!ATTLIST libro id ID #REQUIRED >
+<!ATTLIST libro id ID #REQUIRED> <!-- No consigo poner el patrón L....-->
 <!ATTLIST libro clasificacion (novela | infantil | didáctico) #REQUIRED>
 <!ATTLIST libro tipo_clase CDATA #IMPLIED>
 <!ATTLIST libro paginas CDATA #IMPLIED>
@@ -27,7 +27,7 @@
 <!ELEMENT seccion_revista (contenido)>
 <!ELEMENT numero (#PCDATA)>
 <!--atributos-->
-<!ATTLIST revista id ID #REQUIRED >
+<!ATTLIST revista id ID #REQUIRED > <!-- No consigo poner el patrón L....-->
 <!ATTLIST revista clasificacion (informática | corazón | coches | investigación | otras) "otras">
 <!ATTLIST revista tipo_clase CDATA #IMPLIED>
 <!ATTLIST revista paginas CDATA #IMPLIED>
@@ -40,7 +40,7 @@
 <!ELEMENT seccion_periodico (articulo, contenido)>
 <!ELEMENT articulo (#PCDATA)>
 <!--atributos-->
-<!ATTLIST periodico id ID #REQUIRED >
+<!ATTLIST periodico id ID #REQUIRED > <!-- No consigo poner el patrón L....-->
 <!ATTLIST periodico clasificacion (nacional | internacional) #REQUIRED>
 <!ATTLIST periodico tipo_clase CDATA #IMPLIED>
 <!ATTLIST periodico fecha_publicacion CDATA #REQUIRED>
