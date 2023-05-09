@@ -7,7 +7,6 @@
         <capitulo paginas="1">
             <titulo>Titulo del capitulo</titulo>
             <contenido enlace="https://www.google.es/">Lorem ipsum</contenido>
-            <contenido>Lorem ipsum</contenido>
         </capitulo>
         <capitulo paginas="7">
             <titulo>Titulo del capitulo</titulo>
@@ -18,46 +17,17 @@
     </libro>
 
     <!-- Estructura de una <revista> clasificacion = "informática | corazón | coches | investigación | otras" -->
-    <revista id="R0001" clasificacion = "otras" tipo_clase="actualidad" paginas="0">
+    <revista  tipo_clase="investigación" paginas="1">
         <titulo>Título de la revista</titulo>
-        <numero>Número de la revista</numero>
-        <indice>Índice de contenido</indice>
-        <seccion_revista paginas="0">
+        <numero>1</numero>
+        <indice>
+            <encabezado>Encabezado</encabezado>
+            <apartado titulo="La historia de Edix " pagina="1" />
+            <apartado titulo="La historia de Edix " pagina="3" />
+        </indice>
+        <seccion paginas="1">
             <contenido enlace="https://www.google.es/">Contenido de la revista</contenido>
-        </seccion_revista>
-    </revista>
-    <revista id="R0002" clasificacion = "corazón" paginas="10">
-        <titulo>Título de la revista</titulo>
-        <numero>Número de la revista</numero>
-        <seccion_revista paginas="4">
-            <contenido enlace="https://www.google.es/">Contenido de la revista</contenido>
-        </seccion_revista>
-          <seccion_revista paginas="6">
-            <contenido enlace="https://www.google.es/">Contenido de la revista</contenido>
-        </seccion_revista>
-    </revista>
-    <revista id="R0102" clasificacion = "coches" paginas="10">
-    
-        <titulo>Título de la revista</titulo>
-        <numero>Número de la revista</numero>
-        <seccion_revista paginas="4">
-            <contenido enlace="https://www.google.es/">Contenido de la revista</contenido>
-        </seccion_revista>
-    </revista>  
-    <revista id="R1598" clasificacion = "investigación" paginas="100">
-        <titulo>Título de la revista</titulo>
-        <numero>Número de la revista</numero>
-        <seccion_revista paginas="4">
-            <contenido enlace="https://www.google.es/">Contenido de la revista</contenido>
-        </seccion_revista>
-    </revista>
-    <revista id="R9102" clasificacion = "otras" paginas="10">
-    
-        <titulo>Título de la revista</titulo>
-        <numero>Número de la revista</numero>
-        <seccion_revista paginas="4">
-            <contenido enlace="https://www.google.es/">Contenido de la revista</contenido>
-        </seccion_revista>
+        </seccion>
     </revista>
 
     <!-- Estructura de un <periodico> clasificacion = "nacional | internaciona"-->

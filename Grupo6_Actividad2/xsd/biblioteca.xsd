@@ -25,12 +25,12 @@
                     <xs:complexType>
                         <xs:sequence>
                             <xs:element name="titulo"/>
-                            <xs:element ref="contenido" minOccurs="1" maxOccurs="unbounded"/>
+                            <xs:element ref="contenido"/>
                         </xs:sequence>
                         <xs:attribute name="paginas" type="paginas"/>
                     </xs:complexType>                    
                 </xs:element>
-                <xs:element name="indice"/>
+                <xs:element name="indice"/> <!-- Cambiar si gusta la otra forma -->
                 <!-- Aquí podríamos agregar <contenido> con <titulo> y <pagina>-->
                 <xs:element name="sinopsis"/>
             </xs:sequence>
@@ -44,7 +44,29 @@
     <!-- Definimos <revista> -->
     <xs:element name="revista">
         <xs:complexType>
-        
+            <xs:sequence>
+                <xs:element name="titulo"/>
+                <xs:element name="numero">
+                    <xs:simpleType>
+                        <xs:restriction base="xs:integer">
+                            <xs:minInclusive value="1"/>
+                        </xs:restriction>
+                    </xs:simpleType>
+                </xs:element>
+                <xs:element ref="indice"/>
+                <xs:element name="seccion">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element ref="contenido" minOccurs="1" maxOccurs="unbounded"/>
+                        </xs:sequence>
+                        <xs:attribute name="paginas" type="paginas" />
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+            <!-- Atributos-->
+            <xs:attribute name="id" type="id-revista" use="required"/>
+            <xs:attribute name="tipo_clase" type="clase-revista" use="optional"/>
+            <xs:attribute name="paginas" type="paginas" use="optional"/>
         </xs:complexType>
     </xs:element>
 
@@ -54,7 +76,7 @@
     
     </xs:element>
 
-    <!-- Definimos <otros> -->
+    <!-- Elementos comunes -->
     <xs:element name="contenido">
         <xs:complexType>            
             <!-- Etiqueta usada para definir elementos que contienen solo texto y n atributos-->
@@ -65,6 +87,25 @@
             </xs:simpleContent>
         </xs:complexType>        
     </xs:element>
+
+    <xs:element name="indice">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="encabezado"/>
+                <xs:element name="apartado" minOccurs="1" maxOccurs="unbounded">
+                    <xs:complexType>
+                        <xs:simpleContent>
+                            <xs:extension base="xs:string">
+                                <xs:attribute name="titulo" type="xs:string" use="required"/>
+                                <xs:attribute name="pagina" type="paginas" use="required"/>
+                            </xs:extension>                    
+                        </xs:simpleContent>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
 
     <!-- RESTRICCIONES -->
 
@@ -91,6 +132,16 @@
             <xs:enumeration value="novela"/>
             <xs:enumeration value="infantil"/>
             <xs:enumeration value="didáctico"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="clase-revista">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="informática"/>
+            <xs:enumeration value="corazón"/>
+            <xs:enumeration value="coches"/>
+            <xs:enumeration value="investigación"/>
+            <xs:enumeration value="otras"/>
         </xs:restriction>
     </xs:simpleType>
 
