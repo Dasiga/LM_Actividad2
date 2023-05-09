@@ -1,12 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+    <!-- ESTRUCTURA -->
+
     <!-- Definimos <biblioteca> -->
     <xs:element name="biblioteca">
         <xs:complexType>
             <!-- Contenedores de <biblioteca> : <libro> <revista> <periodico>-->
             <xs:sequence>    
-                <xs:element name="libro" minOccurs="0" maxOccurs="unbounded"/>
-
+                <xs:element ref="libro" minOccurs="0" maxOccurs="unbounded"/>
+                <xs:element ref="revista" minOccurs="0" maxOccurs="unbounded"/>
+                <xs:element ref="periodico" minOccurs="0" maxOccurs="unbounded"/>
             </xs:sequence>
         </xs:complexType>
     </xs:element>
@@ -14,11 +18,89 @@
      <!-- Definimos <libro> -->
      <xs:element name="libro">
         <xs:complexType>
-            <xs:sequence>
+            <!-- Contenido del libro -->
+            <xs:sequence>                
                 <xs:element name="titulo"/>                
+                <xs:element name="capitulo" minOccurs="1" maxOccurs="unbounded">                    
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="titulo"/>
+                            <xs:element ref="contenido" minOccurs="1" maxOccurs="unbounded"/>
+                        </xs:sequence>
+                        <xs:attribute name="paginas" type="paginas"/>
+                    </xs:complexType>                    
+                </xs:element>
+                <xs:element name="indice"/>
+                <!-- Aquí podríamos agregar <contenido> con <titulo> y <pagina>-->
+                <xs:element name="sinopsis"/>
             </xs:sequence>
+            <!-- Atributos <libro> -->
+            <xs:attribute name="id" type="id-libro" use="required" />     
+            <xs:attribute name="tipo_clase" type="clase-libro" use="optional"/>
+            <xs:attribute name="paginas" type="paginas" use="optional"/>       
         </xs:complexType>
      </xs:element>
+
+    <!-- Definimos <revista> -->
+    <xs:element name="revista">
+        <xs:complexType>
+        
+        </xs:complexType>
+    </xs:element>
+
+    <!-- Definimos <periodico> -->
+    <xs:element name="periodico">
+    
+    
+    </xs:element>
+
+    <!-- Definimos <otros> -->
+    <xs:element name="contenido">
+        <xs:complexType>            
+            <!-- Etiqueta usada para definir elementos que contienen solo texto y n atributos-->
+            <xs:simpleContent>
+                <xs:extension base="xs:string">
+                    <xs:attribute name="enlace" type="xs:string" use="optional"/>
+                </xs:extension>
+            </xs:simpleContent>
+        </xs:complexType>        
+    </xs:element>
+
+    <!-- RESTRICCIONES -->
+
+    <!-- Patrón ids -->
+    <xs:simpleType name="id-libro">
+        <xs:restriction base="xs:string">            
+            <xs:pattern value="L\d{4}" />
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="id-revista">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="R\d{4}" />
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="id-periodico">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="P\d{4}" />
+        </xs:restriction>
+    </xs:simpleType>
+
+    <!-- Tipo clases-->
+    <xs:simpleType name="clase-libro">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="novela"/>
+            <xs:enumeration value="infantil"/>
+            <xs:enumeration value="didáctico"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <!-- Comunes -->
+    <xs:simpleType name="paginas">
+        <xs:restriction base="xs:integer">
+            <xs:minInclusive value="1"></xs:minInclusive>
+        </xs:restriction>
+    </xs:simpleType>
+
 </xs:schema>
 
 
