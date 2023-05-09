@@ -72,8 +72,52 @@
 
     <!-- Definimos <periodico> -->
     <xs:element name="periodico">
-    
-    
+        <xs:complexType>
+            <!-- elementos -->
+            <xs:sequence>
+                <xs:element name="indice"/> <!-- Cambiar si gusta la otra forma -->
+                <xs:element name="seccion" maxOccurs="unbounded">
+                    <!-- seccion > articulo | contenido-->
+                    <xs:complexType>                        
+                        <xs:sequence>                            
+                            <xs:element name="articulo">
+                                <xs:complexType>
+                                    <xs:simpleContent>
+                                        <xs:extension base="xs:string">
+                                            <xs:attribute name="autor" type="xs:string" use="required"/>
+                                        </xs:extension>
+                                    </xs:simpleContent>
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="contenido">
+                                <xs:complexType>
+                                    <xs:simpleContent>
+                                        <xs:extension base="xs:string">
+                                            <xs:attribute name="referencia" type="xs:string" use="required"/>
+                                        </xs:extension>
+                                    </xs:simpleContent>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                        <xs:attribute name="tipo">
+                            <xs:simpleType>
+                                <xs:restriction base="xs:string">
+                                    <xs:enumeration value="economía"/>
+                                    <xs:enumeration value="opinión"/>
+                                    <xs:enumeration value="deportes"/>
+                                    <xs:enumeration value="nacional"/>
+                                    <xs:enumeration value="internacional"/>
+                                </xs:restriction>
+                            </xs:simpleType>
+                        </xs:attribute>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+            <!-- atributos -->
+            <xs:attribute name="id" type="id-periodico" use="required"/>
+            <xs:attribute name="tipo_clase" type="clase-periodico" use="optional"/>
+            <xs:attribute name="fecha_publicacion" type="xs:date" use="required"/>
+        </xs:complexType>
     </xs:element>
 
     <!-- Elementos comunes -->
@@ -81,7 +125,7 @@
         <xs:complexType>            
             <!-- Etiqueta usada para definir elementos que contienen solo texto y n atributos-->
             <xs:simpleContent>
-                <xs:extension base="xs:string">
+                <xs:extension base="xs:string">                
                     <xs:attribute name="enlace" type="xs:string" use="optional"/>
                 </xs:extension>
             </xs:simpleContent>
@@ -145,6 +189,13 @@
         </xs:restriction>
     </xs:simpleType>
 
+    <xs:simpleType name="clase-periodico">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="nacional"/>
+            <xs:enumeration value="internacional"/>
+        </xs:restriction>
+    </xs:simpleType>
+
     <!-- Comunes -->
     <xs:simpleType name="paginas">
         <xs:restriction base="xs:integer">
@@ -153,13 +204,3 @@
     </xs:simpleType>
 
 </xs:schema>
-
-
-
-<!-- 
-
-
-
-
-
--->

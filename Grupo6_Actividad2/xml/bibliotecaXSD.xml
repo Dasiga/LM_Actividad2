@@ -17,7 +17,7 @@
     </libro>
 
     <!-- Estructura de una <revista> clasificacion = "informática | corazón | coches | investigación | otras" -->
-    <revista  tipo_clase="investigación" paginas="1">
+    <revista id="R0000" tipo_clase="investigación" paginas="1">
         <titulo>Título de la revista</titulo>
         <numero>1</numero>
         <indice>
@@ -31,29 +31,13 @@
     </revista>
 
     <!-- Estructura de un <periodico> clasificacion = "nacional | internaciona"-->
-    <periodico id="P0001" clasificacion="nacional" tipo_clase="actualidad" fecha_publicacion="29/10/1997">
+    <periodico id="P0001" tipo_clase="nacional" fecha_publicacion="1997-10-29">
         <indice>Indice periodico</indice>
-        <seccion_periodico tipo="nacional"> <!-- tipo="economía | opinión | deportes | nacional |internacional" -->
-            <articulo autor="alguien"></articulo>
+        <seccion tipo="internacional"> <!-- tipo="economía | opinión | deportes | nacional |internacional" -->
+            <articulo autor="a"></articulo>
             <contenido referencia="https://www.google.es/">Informacion</contenido>
-        </seccion_periodico>
-         <seccion_periodico tipo="deportes"> <!-- tipo="economía | opinión | deportes | nacional |internacional" -->
-            <articulo autor="alguien"></articulo>
-            <contenido referencia="https://www.google.es/">Informacion</contenido>
-        </seccion_periodico>
+        </seccion>
+        
     </periodico>
-     <periodico id="P0002" clasificacion="internacional" fecha_publicacion="29/10/1997">
-        <seccion_periodico tipo="economía"> <!-- tipo="economía | opinión | deportes | nacional |internacional" -->
-            <articulo autor="alguien"></articulo>
-            <contenido referencia="https://www.google.es/">Informacion</contenido>
-        </seccion_periodico>
-        <seccion_periodico tipo="opinión"> <!-- tipo="economía | opinión | deportes | nacional |internacional" -->
-            <articulo autor="alguien"></articulo>
-            <contenido referencia="https://www.google.es/">Informacion</contenido>
-        </seccion_periodico>
-        <seccion_periodico tipo="internacional"> <!-- tipo="economía | opinión | deportes | nacional |internacional" -->
-            <articulo autor="alguien"></articulo>
-            <contenido referencia="https://www.google.es/">Informacion</contenido>
-        </seccion_periodico>
-    </periodico>
+
 </biblioteca>
