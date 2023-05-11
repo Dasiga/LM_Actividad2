@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<biblioteca>
+    <libros>
+            <libro id="L0001" tipo_clase="novela" numero_paginas="110">
+                <titulo>Pasión de Gansos</titulo>
+                <capitulo numero_paginas="50">
+                    <titulo>Primera parte</titulo>
+                    <contenido enlace="https://biblioteca.com/libro1/capitulo1.html"></contenido>
+                </capitulo>
+                <capitulo numero_paginas="60">
+                    <titulo>Segunda Parte</titulo>
+                    <contenido enlace="https://biblioteca.com/libro1/capitulo2.html"></contenido>
+                </capitulo>
+                <indice></indice>
+                <sinopsis></sinopsis>
+            </libro>
+
+            <libro id="L0002" tipo_clase="infantil" numero_paginas="40">
+                <titulo>Los 40 cuentos para dormir</titulo>
+                <capitulo numero_paginas="40">
+                    <titulo>Capítulo 1</titulo>
+                    <contenido enlace="https://biblioteca.com/libro2/capitulo1.html"></contenido>
+                </capitulo>
+                <indice></indice>
+                <sinopsis></sinopsis>
+            </libro>
+
+            <libro id="L0003" tipo_clase="didactico" numero_paginas="300">
+                <titulo>Aprende Javascript con Pablo</titulo>
+                <capitulo numero_paginas="70">
+                    <titulo>Capítulo 1</titulo>
+                    <contenido enlace="https://biblioteca.com/libro3/capitulo1.html"></contenido>
+                </capitulo>
+                <capitulo numero_paginas="80">
+                    <titulo>Capítulo 2</titulo>
+                    <contenido enlace="https://biblioteca.com/libro3/capitulo2.html"></contenido>
+                </capitulo>
+                <indice></indice>
+                <sinopsis></sinopsis>
+            </libro>
+    </libros>
+    <revistas>
+            <revista id="R0001" tipo_clase="informatica" numero_paginas="100">
+                <titulo>Informatica</titulo>
+                <numero>1</numero>
+                <indice>???</indice>
+                <secciones_revista>
+                    <seccion_revista  numero_paginas="20">
+                        <contenido enlace="https://biblioteca.com/revista1/seccion1.html"></contenido>
+                    </seccion_revista>
+                    <seccion_revista  numero_paginas="30">
+                        <contenido enlace="https://biblioteca.com/revista1/seccion2.html"></contenido>
+                    </seccion_revista>
+                    <seccion_revista  numero_paginas="50">
+                        <contenido enlace="https://biblioteca.com/revista1/seccion3.html"></contenido>
+                    </seccion_revista>
+                </secciones_revista>
+            </revista>
+
+            <revista id="R0002" tipo_clase="corazon" numero_paginas="100">
+                <titulo>CUORE</titulo>
+                <numero>1</numero>
+                <indice>???</indice>
+                <secciones_revista>
+                    <seccion_revista  numero_paginas="20">
+                        <contenido enlace="https://biblioteca.com/revista2/seccion1.html"></contenido>
+                    </seccion_revista>
+                    <seccion_revista  numero_paginas="30">
+                        <contenido enlace="https://biblioteca.com/revista2/seccion2.html"></contenido>
+                    </seccion_revista>
+                    <seccion_revista  numero_paginas="50">
+                        <contenido enlace="https://biblioteca.com/revista2/seccion3.html"></contenido>
+                    </seccion_revista>
+                </secciones_revista>
+            </revista>
+
+            <revista id="R0003" tipo_clase="coches" numero_paginas="100">
+                <titulo>MasqueCoches</titulo>
+                <numero>1</numero>
+                <indice>???</indice>
+                <secciones_revista>
+                    <seccion_revista  numero_paginas="20">
+                        <contenido enlace="https://biblioteca.com/revista3/seccion1.html"></contenido>
+                    </seccion_revista>
+                    <seccion_revista  numero_paginas="30">
+                        <contenido enlace="https://biblioteca.com/revista3/seccion2.html"></contenido>
+                    </seccion_revista>
+                    <seccion_revista  numero_paginas="50">
+                        <contenido enlace="https://biblioteca.com/revista3/seccion3.html"></contenido>
+                    </seccion_revista>
+                </secciones_revista>
+            </revista>
+
+            <revista id="R0004" tipo_clase="investigacion" numero_paginas="100">
+                <titulo>Investigation</titulo>
+                <numero>1</numero>
+                <indice>???</indice>
+                <secciones_revista>
+                    <seccion_revista  numero_paginas="20">
+                        <contenido enlace="https://biblioteca.com/revista4/seccion1.html"></contenido>
+                    </seccion_revista>
+                    <seccion_revista  numero_paginas="30">
+                        <contenido enlace="https://biblioteca.com/revista4/seccion2.html"></contenido>
+                    </seccion_revista>
+                    <seccion_revista  numero_paginas="50">
+                        <contenido enlace="https://biblioteca.com/revista4/seccion3.html"></contenido>
+                    </seccion_revista>
+                </secciones_revista>
+            </revista>
+
+            <revista id="R0005" tipo_clase="otras" numero_paginas="100">
+                <titulo>El Heraldo de mi casa</titulo>
+                <numero>1</numero>
+                <indice>???</indice>
+                <secciones_revista>
+                    <seccion_revista  numero_paginas="20">
+                        <contenido enlace="https://biblioteca.com/revista5/seccion1.html"></contenido>
+                    </seccion_revista>
+                    <seccion_revista  numero_paginas="30">
+                        <contenido enlace="https://biblioteca.com/revista5/seccion2.html"></contenido>
+                    </seccion_revista>
+                    <seccion_revista  numero_paginas="50">
+                        <contenido enlace="https://biblioteca.com/revista5/seccion3.html"></contenido>
+                    </seccion_revista>
+                </secciones_revista>
+            </revista>
+            
+    </revistas>
+    <periodicos>
+        <periodico  id ="P0001" tipo_clase="nacionales" fecha_publicacion="07/05/2023">
+            <secciones_periodico>
+
+                <seccion_periodico tipo="economica">
+                    <articulo autor="J Piqueras">
+                        <contenido_periodico>Contenido del artículo</contenido_periodico>
+                    </articulo>
+                </seccion_periodico>
+
+                <seccion_periodico tipo="opinion">
+                    <articulo autor="J Piqueras">
+                        <contenido_periodico>Contenido del artículo</contenido_periodico>
+                    </articulo>
+                </seccion_periodico>
+                <seccion_periodico tipo="deportes">
+                    <articulo autor="J Piqueras">
+                        <contenido_periodico>Contenido del artículo</contenido_periodico>
+                    </articulo>
+                </seccion_periodico>
+                <seccion_periodico tipo="nacional">
+                    <articulo autor="J Piqueras">
+                        <contenido_periodico>Contenido del artículo</contenido_periodico>
+                    </articulo>
+                </seccion_periodico>
+                <seccion_periodico tipo="internacional">
+                    <articulo autor="J Piqueras">
+                        <contenido_periodico>Contenido del artículo</contenido_periodico>
+                    </articulo>
+                </seccion_periodico>
+            </secciones_periodico>
+
+            <indice></indice>
+
+        </periodico>
+
+        <periodico id ="P0002" tipo_clase="internacionales" fecha_publicacion="07/05/2023">
+            <secciones_periodico>
+
+                <seccion_periodico tipo="economica">
+                    <articulo autor="J Piqueras">
+                        <contenido_periodico>Contenido del artículo</contenido_periodico>
+                    </articulo>
+                </seccion_periodico>
+
+                <seccion_periodico tipo="opinion">
+                    <articulo autor="J Piqueras">
+                        <contenido_periodico>Contenido del artículo</contenido_periodico>
+                    </articulo>
+                </seccion_periodico>
+                <seccion_periodico tipo="deportes">
+                    <articulo autor="J Piqueras">
+                        <contenido_periodico>Contenido del artículo</contenido_periodico>
+                    </articulo>
+                </seccion_periodico>
+                <seccion_periodico tipo="nacional">
+                    <articulo autor="J Piqueras">
+                        <contenido_periodico>Contenido del artículo</contenido_periodico>
+                    </articulo>
+                </seccion_periodico>
+                <seccion_periodico tipo="internacional">
+                    <articulo autor="J Piqueras">
+                        <contenido_periodico>Contenido del artículo</contenido_periodico>
+                    </articulo>
+                </seccion_periodico>
+            </secciones_periodico>
+            
+            <indice></indice>
+
+        </periodico>
+
+    </periodicos>
+</biblioteca>
