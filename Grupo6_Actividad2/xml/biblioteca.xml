@@ -1,0 +1,56 @@
+<biblioteca>
+
+
+    <libro id="L0001" n_paginas_total="3000">
+        <tipo_clase>novela</tipo_clase>
+        <tipo_clase>infantil</tipo_clase>
+        <tipo_clase>didáctico</tipo_clase>
+        <titulo></titulo>
+        <capitulo n_paginas_cap="250">
+
+            <contenido>
+                
+                <![CDATA[
+                <!--enlace al contenido-->
+                ]]>
+            
+            </contenido>
+
+        </capitulo>
+        <indice></indice>
+        <sinopsis></sinopsis>
+
+
+    </libro>
+
+
+    <revista id="R0001" n_paginas_total="80">
+        <tipo_clase>informática</tipo_clase>
+        <tipo_clase>corazón</tipo_clase>
+        <tipo_clase>investigación</tipo_clase>
+        <tipo_clase>otros</tipo_clase>
+        <titulo></titulo>
+        <numero_revista></numero_revista>
+        <indice_contenido></indice_contenido>
+        <secciones n_paginas_seccion="5">
+            <contenido>
+                
+                <![CDATA[
+                <!--enlace al contenido-->
+                ]]>
+            
+            </contenido>
+
+        </secciones>
+
+    </revista>
+
+    <periodico id="P0001">
+        <tipo_clase fecha_publicacion="08/05/2023">nacional</tipo_clase>
+        <tipo_clase fecha_publicacion="08/05/2023">internacional</tipo_clase>
+        <indice></indice>
+        <contenido></contenido>
+
+    </periodico>
+
+</biblioteca>
