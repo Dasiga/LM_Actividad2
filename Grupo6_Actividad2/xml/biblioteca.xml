@@ -1,45 +1,47 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
-<!DOCTYPE biblioteca SYSTEM "../dtd/biblioteca.dtd">
-
-<!-- tipo_clase "informática | actualidad | ciencia "-->
-
 <biblioteca>
-    <!-- Estructura de un <libro> clasificacion = "novela | infantil | didáctico"-->
-    <libro id="L0001" clasificacion ="novela" tipo_clase ="científica" paginas="10">
-        <titulo>Titulo del libro</titulo>
-        <capitulo paginas="3">
-            <titulo>Titulo del capitulo</titulo>
-            <contenido enlace="https://www.google.es/">Lorem ipsum</contenido>
-        </capitulo>
-        <capitulo paginas="7">
-            <titulo>Titulo del capitulo</titulo>
-            <contenido enlace="https://www.google.es/">Lorem ipsum</contenido>
-        </capitulo>
-        <indice>Indice del libro</indice>
-        <sinopsis>Resumen del libro</sinopsis>
-    </libro>
-
-    <!-- Estructura de una <revista> clasificacion = "informática | corazón | coches | investigación | otras" -->
-    <revista id="R0001" clasificacion = "otras" tipo_clase="actualidad" paginas="0">
-        <titulo>Título de la revista</titulo>
-        <numero>Número de la revista</numero>
-        <indice>Índice de contenido</indice>
-        <seccion_revista paginas="0">
-            <contenido enlace="https://www.google.es/">Contenido de la revista</contenido>
-        </seccion_revista>
-    </revista>
+    <libros>
+        <!-- Estructura de un <libro> clasificacion = "novela | infantil | didáctico"-->
+        <libro id="L0001" clasificacion ="novela" tipo_clase ="científica" paginas="10">
+            <titulo>Titulo del libro</titulo>
+            <capitulo paginas="3">
+                <titulo>Titulo del capitulo</titulo>
+                <contenido enlace="https://www.google.es/">Lorem ipsum</contenido>
+            </capitulo>
+            <capitulo paginas="7">
+                <titulo>Titulo del capitulo</titulo>
+                <contenido enlace="https://www.google.es/">Lorem ipsum</contenido>
+            </capitulo>
+            <indice>Indice del libro</indice>
+            <sinopsis>Resumen del libro</sinopsis>
+        </libro>
+    </libros>
     
-    <!-- Estructura de un <periodico> clasificacion = "nacional | internaciona"-->
-    <periodico id="P0001" clasificacion="nacional" tipo_clase="actualidad" fecha_publicacion="29/10/1997">
-        <indice>Indice periodico</indice>
-        <seccion_periodico tipo="nacional"> <!-- tipo="economía | opinión | deportes | nacional |internacional" -->
-            <articulo autor="alguien"></articulo>
-            <contenido referencia="https://www.google.es/">Informacion</contenido>
-        </seccion_periodico>
-         <seccion_periodico tipo="deportes"> <!-- tipo="economía | opinión | deportes | nacional |internacional" -->
-            <articulo autor="alguien"></articulo>
-            <contenido referencia="https://www.google.es/">Informacion</contenido>
-        </seccion_periodico>
-    </periodico>
+    <revistas>
+        <!-- Estructura de una <revista> clasificacion = "informática | corazón | coches | investigación | otras" -->
+        <revista id="R0001" clasificacion = "otras" tipo_clase="actualidad" paginas="0">
+            <titulo>Título de la revista</titulo>
+            <numero>Número de la revista</numero>
+            <indice>Índice de contenido</indice>
+            <seccion_revista paginas="0">
+                <contenido enlace="https://www.google.es/">Contenido de la revista</contenido>
+            </seccion_revista>
+        </revista>
+    </revistas>
+    
+    <periodicos>
+        <!-- Estructura de un <periodico> clasificacion = "nacional | internaciona"-->
+        <periodico id="P0001" clasificacion="nacional" tipo_clase="actualidad" fecha_publicacion="29/10/1997">
+            <indice>Indice periodico</indice>
+            <seccion_periodico tipo="nacional"> <!-- tipo="economía | opinión | deportes | nacional |internacional" -->
+                <articulo autor="alguien"></articulo>
+                <contenido referencia="https://www.google.es/">Informacion</contenido>
+            </seccion_periodico>
+            <seccion_periodico tipo="deportes"> <!-- tipo="economía | opinión | deportes | nacional |internacional" -->
+                <articulo autor="alguien"></articulo>
+                <contenido referencia="https://www.google.es/">Informacion</contenido>
+            </seccion_periodico>
+        </periodico>
+    </periodicos>
+
 </biblioteca>

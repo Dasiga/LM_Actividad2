@@ -1,49 +1,55 @@
-<!-- Generales -->
-<!ELEMENT biblioteca (libro*, revista*, periodico*)>
 
-<!-- Elementos generales -->
-<!ELEMENT indice (#PCDATA)>
-<!ELEMENT contenido (#PCDATA)>
-<!ELEMENT titulo (#PCDATA)>
+<!ELEMENT biblioteca (libros|revistas|periodicos)*>
 
-<!-- Libro -->
-<!-- _____ -->
-<!-- elementos -->
-<!ELEMENT libro (titulo, capitulo+, indice?, sinopsis?)>
-<!ELEMENT capitulo (titulo, contenido)>
-<!ELEMENT sinopsis (#PCDATA)>
-<!--atributos-->
-<!ATTLIST libro id ID #REQUIRED> <!-- No consigo poner el patrón L....-->
-<!ATTLIST libro clasificacion (novela | infantil | didáctico) #REQUIRED>
-<!ATTLIST libro tipo_clase CDATA #IMPLIED>
-<!ATTLIST libro paginas CDATA #IMPLIED>
-<!ATTLIST capitulo paginas CDATA #IMPLIED>
-<!ATTLIST contenido enlace CDATA #IMPLIED>
+  <!-- Definicion etiqueta libro -->
 
-<!-- REvista -->
-<!-- _______ -->
-<!-- elementos -->
-<!ELEMENT revista (titulo, numero, indice?, seccion_revista+)>
-<!ELEMENT seccion_revista (contenido)>
-<!ELEMENT numero (#PCDATA)>
-<!--atributos-->
-<!ATTLIST revista id ID #REQUIRED > <!-- No consigo poner el patrón L....-->
-<!ATTLIST revista clasificacion (informática | corazón | coches | investigación | otras) "otras">
-<!ATTLIST revista tipo_clase CDATA #IMPLIED>
-<!ATTLIST revista paginas CDATA #IMPLIED>
-<!ATTLIST seccion_revista paginas CDATA #IMPLIED>
+  <!ELEMENT libros (libro*)>
+  <!ELEMENT libro (titulo,capitulo+,indice,sinopsis+)>
+  <!ATTLIST libro
+                id CDATA #REQUIRED
+                tipo_clase CDATA #IMPLIED
+                paginas CDATA #IMPLIED
+  >
+  <!ELEMENT titulo (#PCDATA)>
+  <!ELEMENT capitulo (titulo, contenido)>
+  <!ATTLIST capitulo paginas CDATA #IMPLIED>
+  <!ELEMENT contenido (#PCDATA)>
+  <!ATTLIST contenido enlace CDATA #IMPLIED>
+  
+  <!ELEMENT sinopsis (#PCDATA)>
+  
+    <!-- Definicion etiqueta revista -->
 
-<!-- Periodico -->
-<!-- _______ -->
-<!-- elementos -->
-<!ELEMENT periodico (indice?, seccion_periodico+)>
-<!ELEMENT seccion_periodico (articulo, contenido)>
-<!ELEMENT articulo (#PCDATA)>
-<!--atributos-->
-<!ATTLIST periodico id ID #REQUIRED > <!-- No consigo poner el patrón L....-->
-<!ATTLIST periodico clasificacion (nacional | internacional) #REQUIRED>
-<!ATTLIST periodico tipo_clase CDATA #IMPLIED>
-<!ATTLIST periodico fecha_publicacion CDATA #REQUIRED>
-<!ATTLIST seccion_periodico tipo (economía | opinión | deportes | nacional | internacional) #REQUIRED>
-<!ATTLIST articulo autor CDATA #REQUIRED>
-<!ATTLIST contenido referencia CDATA #IMPLIED>
+  <!ELEMENT revistas (revista*)>
+  <!ELEMENT revista (titulo, numero, indice, seccion_revista+)>
+  <!ATTLIST revista 
+             id CDATA #REQUIRED
+             tipo_clase CDATA #IMPLIED
+			 paginas CDATA #IMPLIED
+  >
+  <!ELEMENT numero (#PCDATA)>
+  <!ELEMENT secciones_revista (seccion_revista+)>
+  <!ELEMENT seccion_revista (contenido)>
+  <!ATTLIST seccion_revista paginas CDATA #IMPLIED>
+
+  <!-- Definicion etiqueta periodico -->
+
+  <!ELEMENT periodicos (periodico*)>
+  <!ELEMENT periodico (indice, seccion_periodico+)>
+  <!ATTLIST periodico id CDATA #REQUIRED>
+  <!ATTLIST periodico tipo_clase CDATA #IMPLIED>
+  <!ATTLIST periodico fecha_publicacion CDATA #REQUIRED>
+  <!ATTLIST seccion_periodico tipo CDATA #IMPLIED>
+  <!ELEMENT seccion_periodico (articulo*, contenido_periodico)>
+  <!ELEMENT articulo (#PCDATA)>
+  <!ATTLIST articulo autor CDATA #IMPLIED>
+  <!ELEMENT contenido_periodico (#PCDATA)>
+  <!ATTLIST contenido_periodico referencia CDATA #IMPLIED>
+
+
+  <!-- Definición de comunes -->
+  <!ELEMENT indice (encabezado, apartado+)>
+  <!ELEMENT encabezado (#PCDATA)>
+  <!ELEMENT apartado (#PCDATA)>
+  <!ATTLIST apartado titulo CDATA #REQUIRED>
+  <!ATTLIST apartado pagina CDATA #REQUIRED>
