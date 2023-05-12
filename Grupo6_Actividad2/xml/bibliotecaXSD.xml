@@ -1,43 +1,175 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <biblioteca xmlns:xs="http://www.w3.org/2001/XMLSchema-instance"
         xs:noNamespaceSchemaLocation="../xsd/biblioteca.xsd">
+        
     <!-- Estructura de un <libro> clasificacion = "novela | infantil | didáctico"-->
-    <libro id="L0001" tipo_clase ="novela" paginas="10">
-        <titulo>Titulo del libro</titulo>
-        <capitulo paginas="1">
-            <titulo>Titulo del capitulo</titulo>
-            <contenido enlace="https://www.google.es/">Lorem ipsum</contenido>
-        </capitulo>
-        <capitulo paginas="7">
-            <titulo>Titulo del capitulo</titulo>
-            <contenido enlace="https://www.google.es/">Lorem ipsum</contenido>
-        </capitulo>
-        <indice>Indice del libro</indice>
-        <sinopsis>Resumen del libro</sinopsis>
-    </libro>
+   <libros>
+        <libro id="L0001" tipo_clase ="novela" paginas="10">
+            <titulo>Titulo del libro</titulo>
+            <capitulo paginas="1">
+                <titulo>Titulo del capitulo</titulo>
+                <contenido enlace="https://www.google.es/">Lorem ipsum</contenido>
+            </capitulo>
+            <capitulo paginas="7">
+                <titulo>Titulo del capitulo</titulo>
+                <contenido enlace="https://www.google.es/">Lorem ipsum</contenido>
+            </capitulo>
+            <indice>
+                <encabezado>Encabezado</encabezado>
+                <apartado titulo="Título apartado 1" pagina="2"/>
+                <apartado titulo="Título apartado 2" pagina="4"/>
+            </indice>
+            <sinopsis>Resumen del libro</sinopsis>
+        </libro>
+        <libro id="L0002" tipo_clase ="didáctico">
+            <titulo>Titulo del libro</titulo>
+            <capitulo paginas="1">
+                <titulo>Titulo del capitulo</titulo>
+                <contenido enlace="https://www.google.es/">Lorem ipsum</contenido>
+            </capitulo>
+            <capitulo paginas="7">
+                <titulo>Titulo del capitulo</titulo>
+                <contenido enlace="https://www.google.es/">Lorem ipsum</contenido>
+            </capitulo>
+            <indice>
+                <encabezado>Encabezado</encabezado>
+                <apartado titulo="Título apartado 1" pagina="2"/>
+                <apartado titulo="Título apartado 2" pagina="4"/>
+            </indice>
+            <sinopsis>Resumen del libro</sinopsis>
+        </libro>
+        <libro id="L0003" tipo_clase ="infantil">
+            <titulo>Titulo del libro</titulo>
+            <capitulo paginas="1">
+                <titulo>Titulo del capitulo</titulo>
+                <contenido enlace="https://www.google.es/">Lorem ipsum</contenido>
+            </capitulo>
+            <capitulo paginas="7">
+                <titulo>Titulo del capitulo</titulo>
+                <contenido enlace="https://www.google.es/">Lorem ipsum</contenido>
+            </capitulo>
+            <indice>
+                <encabezado>Encabezado</encabezado>
+                <apartado titulo="Título apartado 1" pagina="2"/>
+            </indice>
+            <sinopsis>Resumen del libro</sinopsis>
+        </libro>
+         <libro id="L0004">
+            <titulo>Titulo del libro</titulo>
+            <capitulo>
+                <titulo>Titulo del capitulo</titulo>
+                <contenido>Lorem ipsum</contenido>
+            </capitulo>
+            <capitulo>
+                <titulo>Titulo del capitulo</titulo>
+                <contenido>Lorem ipsum</contenido>
+            </capitulo>
+            <indice>
+                <encabezado>Encabezado</encabezado>
+                <apartado titulo="Título apartado 1" pagina="2"/>
+            </indice>
+            <sinopsis>Resumen del libro</sinopsis>
+        </libro>        
+   </libros>
 
     <!-- Estructura de una <revista> clasificacion = "informática | corazón | coches | investigación | otras" -->
-    <revista id="R0000" tipo_clase="investigación" paginas="1">
-        <titulo>Título de la revista</titulo>
-        <numero>1</numero>
-        <indice>
-            <encabezado>Encabezado</encabezado>
-            <apartado titulo="La historia de Edix " pagina="1" />
-            <apartado titulo="La historia de Edix " pagina="3" />
-        </indice>
-        <seccion paginas="1">
-            <contenido enlace="https://www.google.es/">Contenido de la revista</contenido>
-        </seccion>
-    </revista>
+    <revistas>
+        <revista id="R0001" tipo_clase="otras" paginas="120">
+            <titulo>Título de la revista</titulo>
+            <numero>1</numero>
+            <indice>
+                <encabezado>Encabezado</encabezado>
+                <apartado titulo="La historia de Edix " pagina="1" />
+                <apartado titulo="La historia de Edix " pagina="62" />
+            </indice>
+            <seccion paginas="1">
+                <contenido enlace="https://www.google.es/">Contenido de la revista</contenido>
+            </seccion>
+        </revista>
+        <revista id="R0002" tipo_clase="investigación" paginas="1">
+            <titulo>Título de la revista</titulo>
+            <numero>1</numero>
+            <indice>
+                <encabezado>Encabezado</encabezado>
+                <apartado titulo="La historia de Edix " pagina="1" />
+                <apartado titulo="La historia de Edix " pagina="3" />
+            </indice>
+            <seccion paginas="1">
+                <contenido enlace="https://www.google.es/">Contenido de la revista</contenido>
+            </seccion>
+        </revista>
+        <revista id="R0003" tipo_clase="informática" paginas="1">
+            <titulo>Título de la revista</titulo>
+            <numero>1</numero>
+            <indice>
+                <encabezado>Encabezado</encabezado>
+                <apartado titulo="La historia de Edix " pagina="1" />
+                <apartado titulo="La historia de Edix " pagina="3" />
+            </indice>
+            <seccion paginas="1">
+                <contenido enlace="https://www.google.es/">Contenido de la revista</contenido>
+            </seccion>
+        </revista>
+        <revista id="R0004" tipo_clase="corazón" paginas="1">
+            <titulo>Título de la revista</titulo>
+            <numero>1</numero>
+            <indice>
+                <encabezado>Encabezado</encabezado>
+                <apartado titulo="La historia de Edix " pagina="1" />
+                <apartado titulo="La historia de Edix " pagina="3" />
+            </indice>
+            <seccion paginas="1">
+                <contenido enlace="https://www.google.es/">Contenido de la revista</contenido>
+            </seccion>
+        </revista>
+        <revista id="R0005" tipo_clase="coches" paginas="1">
+            <titulo>Título de la revista</titulo>
+            <numero>1</numero>
+            <indice>
+                <encabezado>Encabezado</encabezado>
+                <apartado titulo="La historia de Edix " pagina="1" />
+                <apartado titulo="La historia de Edix " pagina="3" />
+            </indice>
+            <seccion paginas="1">
+                <contenido enlace="https://www.google.es/">Contenido de la revista</contenido>
+            </seccion>
+        </revista>
+        <revista id="R0006">
+            <titulo>Título de la revista</titulo>
+            <numero>1</numero>
+            <indice>
+                <encabezado>Encabezado</encabezado>
+                <apartado titulo="La historia de Edix " pagina="1" />
+            </indice>
+            <seccion>
+                <contenido>Contenido de la revista</contenido>
+            </seccion>
+        </revista>
+    </revistas>
 
     <!-- Estructura de un <periodico> clasificacion = "nacional | internaciona"-->
-    <periodico id="P0001" tipo_clase="nacional" fecha_publicacion="1997-10-29">
-        <indice>Indice periodico</indice>
-        <seccion tipo="internacional"> <!-- tipo="economía | opinión | deportes | nacional |internacional" -->
-            <articulo autor="a"></articulo>
-            <contenido referencia="https://www.google.es/">Informacion</contenido>
-        </seccion>
-        
-    </periodico>
+    <periodicos>
+        <periodico id="P0001" tipo_clase="nacional" fecha_publicacion="1997-10-29">
+            <indice>Indice periodico</indice>
+            <seccion tipo="opinión"> <!-- tipo="economía | opinión | deportes | nacional |internacional" -->
+                <articulo autor="Pedro"></articulo>
+                <contenido referencia="https://www.google.es/">Informacion</contenido>
+            </seccion>            
+        </periodico>
+        <periodico id="P0002" tipo_clase="internacional" fecha_publicacion="1997-10-29">
+            <indice>Indice periodico</indice>
+            <seccion tipo="deportes"> <!-- tipo="economía | opinión | deportes | nacional |internacional" -->
+                <articulo autor="Juán"></articulo>
+                <contenido referencia="https://www.google.es/">Informacion</contenido>
+            </seccion>            
+        </periodico>
+         <periodico id="P0003" fecha_publicacion="1997-10-29">
+            <indice>Indice periodico</indice>
+            <seccion > <!-- tipo="economía | opinión | deportes | nacional |internacional" -->
+                <articulo autor="Juán"></articulo>
+                <contenido referencia="https://www.google.es/">Informacion</contenido>
+            </seccion>            
+        </periodico>
+    </periodicos>
 
 </biblioteca>

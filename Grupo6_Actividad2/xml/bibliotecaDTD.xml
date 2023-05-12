@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE biblioteca SYSTEM "../dtd/biblioteca.dtd">
 
-<!-- tipo_clase "informática | actualidad | ciencia "-->
 <biblioteca>
     <!-- Estructura de un <libro> clasificacion = "novela | infantil | didáctico"-->
     <libro id="L0001" clasificacion ="novela" tipo_clase ="científica" paginas="10">

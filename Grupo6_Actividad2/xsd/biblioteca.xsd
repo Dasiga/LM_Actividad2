@@ -6,13 +6,39 @@
     <!-- Definimos <biblioteca> -->
     <xs:element name="biblioteca">
         <xs:complexType>
-            <!-- Contenedores de <biblioteca> : <libro> <revista> <periodico>-->
-            <xs:sequence>    
-                <xs:element ref="libro" minOccurs="0" maxOccurs="unbounded"/>
-                <xs:element ref="revista" minOccurs="0" maxOccurs="unbounded"/>
-                <xs:element ref="periodico" minOccurs="0" maxOccurs="unbounded"/>
-            </xs:sequence>
+            <!-- Contenedores generales de <biblioteca> : <libros> <revistas> <periodicos>-->
+            <xs:all>    
+                <xs:element name="libros" minOccurs="0">
+                    <xs:complexType>
+                        <xs:sequence>
+                        <!-- Elemento LIBRO -->
+                             <xs:element ref="libro" minOccurs="0" maxOccurs="unbounded"/>
+                         </xs:sequence>
+                    </xs:complexType>                
+                </xs:element>
+                <xs:element name="revistas" minOccurs="0">
+                    <xs:complexType>
+                        <xs:sequence>
+                             <!-- Elemento REVISTA -->
+                             <xs:element ref="revista" minOccurs="0" maxOccurs="unbounded"/>
+                         </xs:sequence>
+                    </xs:complexType>                
+                </xs:element>
+                <xs:element name="periodicos" minOccurs="0">
+                    <xs:complexType>
+                        <xs:sequence>
+                             <!-- Elemento Periodico -->
+                             <xs:element ref="periodico" minOccurs="0" maxOccurs="unbounded"/>
+                         </xs:sequence>
+                    </xs:complexType>                
+                </xs:element>
+            </xs:all>
         </xs:complexType>
+        <!-- Hacemos únicos todos los id-->
+        <xs:unique name="id-unique">
+            <xs:selector xpath="./*/*"/>   <!-- Dentro de <actual> <todos> y <todos>-->
+            <xs:field xpath="@id"/>            
+        </xs:unique>
     </xs:element>
 
      <!-- Definimos <libro> -->
@@ -30,8 +56,7 @@
                         <xs:attribute name="paginas" type="paginas"/>
                     </xs:complexType>                    
                 </xs:element>
-                <xs:element name="indice"/> <!-- Cambiar si gusta la otra forma -->
-                <!-- Aquí podríamos agregar <contenido> con <titulo> y <pagina>-->
+                <xs:element ref="indice"/>                 
                 <xs:element name="sinopsis"/>
             </xs:sequence>
             <!-- Atributos <libro> -->
@@ -39,6 +64,7 @@
             <xs:attribute name="tipo_clase" type="clase-libro" use="optional"/>
             <xs:attribute name="paginas" type="paginas" use="optional"/>       
         </xs:complexType>
+
      </xs:element>
 
     <!-- Definimos <revista> -->
@@ -120,6 +146,7 @@
         </xs:complexType>
     </xs:element>
 
+
     <!-- Elementos comunes -->
     <xs:element name="contenido">
         <xs:complexType>            
@@ -149,7 +176,6 @@
             </xs:sequence>
         </xs:complexType>
     </xs:element>
-
 
     <!-- RESTRICCIONES -->
 
