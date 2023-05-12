@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+    <!-- ESTRUCTURA -->
+
+    <!-- Definimos <biblioteca> -->
+    <xs:element name="biblioteca">
+        <xs:complexType>
+            <!-- Contenedores generales de <biblioteca> : <libros> <revistas> <periodicos>-->
+            <xs:all>    
+                <xs:element name="libros" minOccurs="0">
+                    <xs:complexType>
+                        <xs:sequence>
+                        <!-- Elemento LIBRO -->
+                             <xs:element ref="libro" minOccurs="0" maxOccurs="unbounded"/>
+                         </xs:sequence>
+                    </xs:complexType>                
+                </xs:element>
+                <xs:element name="revistas" minOccurs="0">
+                    <xs:complexType>
+                        <xs:sequence>
+                             <!-- Elemento REVISTA -->
+                             <xs:element ref="revista" minOccurs="0" maxOccurs="unbounded"/>
+                         </xs:sequence>
+                    </xs:complexType>                
+                </xs:element>
+                <xs:element name="periodicos" minOccurs="0">
+                    <xs:complexType>
+                        <xs:sequence>
+                             <!-- Elemento Periodico -->
+                             <xs:element ref="periodico" minOccurs="0" maxOccurs="unbounded"/>
+                         </xs:sequence>
+                    </xs:complexType>                
+                </xs:element>
+            </xs:all>
+        </xs:complexType>
+        <!-- Hacemos únicos todos los id-->
+        <xs:unique name="id-unique">
+            <xs:selector xpath="./*/*"/>   <!-- Dentro de <actual> <todos> y <todos>-->
+            <xs:field xpath="@id"/>            
+        </xs:unique>
+    </xs:element>
+
+     <!-- Definimos <libro> -->
+     <xs:element name="libro">
+        <xs:complexType>
+            <!-- Contenido del libro -->
+            <xs:sequence>                
+                <xs:element name="titulo"/>                
+                <xs:element name="capitulo" minOccurs="1" maxOccurs="unbounded">                    
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="titulo"/>
+                            <xs:element ref="contenido"/>
+                        </xs:sequence>
+                        <xs:attribute name="paginas" type="paginas"/>
+                    </xs:complexType>                    
+                </xs:element>
+                <xs:element ref="indice"/>                 
+                <xs:element name="sinopsis"/>
+            </xs:sequence>
+            <!-- Atributos <libro> -->
+            <xs:attribute name="id" type="id-libro" use="required" />     
+            <xs:attribute name="tipo_clase" type="clase-libro" use="optional"/>
+            <xs:attribute name="paginas" type="paginas" use="optional"/>       
+        </xs:complexType>
+
+     </xs:element>
+
+    <!-- Definimos <revista> -->
+    <xs:element name="revista">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="titulo"/>
+                <xs:element name="numero">
+                    <xs:simpleType>
+                        <xs:restriction base="xs:integer">
+                            <xs:minInclusive value="1"/>
+                        </xs:restriction>
+                    </xs:simpleType>
+                </xs:element>
+                <xs:element ref="indice"/>
+                <xs:element name="seccion">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element ref="contenido" minOccurs="1" maxOccurs="unbounded"/>
+                        </xs:sequence>
+                        <xs:attribute name="paginas" type="paginas" />
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+            <!-- Atributos-->
+            <xs:attribute name="id" type="id-revista" use="required"/>
+            <xs:attribute name="tipo_clase" type="clase-revista" use="optional"/>
+            <xs:attribute name="paginas" type="paginas" use="optional"/>
+        </xs:complexType>
+    </xs:element>
+
+    <!-- Definimos <periodico> -->
+    <xs:element name="periodico">
+        <xs:complexType>
+            <!-- elementos -->
+            <xs:sequence>
+                <xs:element name="indice"/> <!-- Cambiar si gusta la otra forma -->
+                <xs:element name="seccion" maxOccurs="unbounded">
+                    <!-- seccion > articulo | contenido-->
+                    <xs:complexType>                        
+                        <xs:sequence>                            
+                            <xs:element name="articulo">
+                                <xs:complexType>
+                                    <xs:simpleContent>
+                                        <xs:extension base="xs:string">
+                                            <xs:attribute name="autor" type="xs:string" use="required"/>
+                                        </xs:extension>
+                                    </xs:simpleContent>
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="contenido">
+                                <xs:complexType>
+                                    <xs:simpleContent>
+                                        <xs:extension base="xs:string">
+                                            <xs:attribute name="referencia" type="xs:string" use="required"/>
+                                        </xs:extension>
+                                    </xs:simpleContent>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                        <xs:attribute name="tipo">
+                            <xs:simpleType>
+                                <xs:restriction base="xs:string">
+                                    <xs:enumeration value="economía"/>
+                                    <xs:enumeration value="opinión"/>
+                                    <xs:enumeration value="deportes"/>
+                                    <xs:enumeration value="nacional"/>
+                                    <xs:enumeration value="internacional"/>
+                                </xs:restriction>
+                            </xs:simpleType>
+                        </xs:attribute>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+            <!-- atributos -->
+            <xs:attribute name="id" type="id-periodico" use="required"/>
+            <xs:attribute name="tipo_clase" type="clase-periodico" use="optional"/>
+            <xs:attribute name="fecha_publicacion" type="xs:date" use="required"/>
+        </xs:complexType>
+    </xs:element>
+
+
+    <!-- Elementos comunes -->
+    <xs:element name="contenido">
+        <xs:complexType>            
+            <!-- Etiqueta usada para definir elementos que contienen solo texto y n atributos-->
+            <xs:simpleContent>
+                <xs:extension base="xs:string">                
+                    <xs:attribute name="enlace" type="xs:string" use="optional"/>
+                </xs:extension>
+            </xs:simpleContent>
+        </xs:complexType>        
+    </xs:element>
+
+    <xs:element name="indice">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="encabezado"/>
+                <xs:element name="apartado" minOccurs="1" maxOccurs="unbounded">
+                    <xs:complexType>
+                        <xs:simpleContent>
+                            <xs:extension base="xs:string">
+                                <xs:attribute name="titulo" type="xs:string" use="required"/>
+                                <xs:attribute name="pagina" type="paginas" use="required"/>
+                            </xs:extension>                    
+                        </xs:simpleContent>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <!-- RESTRICCIONES -->
+
+    <!-- Patrón ids -->
+    <xs:simpleType name="id-libro">
+        <xs:restriction base="xs:string">            
+            <xs:pattern value="L\d{4}" />
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="id-revista">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="R\d{4}" />
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="id-periodico">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="P\d{4}" />
+        </xs:restriction>
+    </xs:simpleType>
+
+    <!-- Tipo clases-->
+    <xs:simpleType name="clase-libro">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="novela"/>
+            <xs:enumeration value="infantil"/>
+            <xs:enumeration value="didáctico"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="clase-revista">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="informática"/>
+            <xs:enumeration value="corazón"/>
+            <xs:enumeration value="coches"/>
+            <xs:enumeration value="investigación"/>
+            <xs:enumeration value="otras"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="clase-periodico">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="nacional"/>
+            <xs:enumeration value="internacional"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <!-- Comunes -->
+    <xs:simpleType name="paginas">
+        <xs:restriction base="xs:integer">
+            <xs:minInclusive value="1"></xs:minInclusive>
+        </xs:restriction>
+    </xs:simpleType>
+
+</xs:schema>
