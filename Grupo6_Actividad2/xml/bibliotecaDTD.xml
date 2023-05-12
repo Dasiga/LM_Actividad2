@@ -1,5 +1,60 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE biblioteca SYSTEM "../dtd/biblioteca.dtd">
+<!-- <!DOCTYPE biblioteca SYSTEM "../dtd/biblioteca.dtd"> -->
+<!DOCTYPE biblioteca [
+    <!ELEMENT biblioteca (libros|revistas|periodicos)*>
+
+  <!-- Definicion etiqueta libro -->
+
+  <!ELEMENT libros (libro*)>
+  <!ELEMENT libro (titulo,capitulo+,indice,sinopsis+)>
+  <!ATTLIST libro
+                id CDATA #REQUIRED
+                tipo_clase CDATA #IMPLIED
+                paginas CDATA #IMPLIED
+  >
+  <!ELEMENT titulo (#PCDATA)>
+  <!ELEMENT capitulo (titulo, contenido)>
+  <!ATTLIST capitulo paginas CDATA #IMPLIED>
+  <!ELEMENT contenido (#PCDATA)>
+  <!ATTLIST contenido enlace CDATA #IMPLIED>
+  
+  <!ELEMENT sinopsis (#PCDATA)>
+  
+    <!-- Definicion etiqueta revista -->
+
+  <!ELEMENT revistas (revista*)>
+  <!ELEMENT revista (titulo, numero, indice, seccion_revista+)>
+  <!ATTLIST revista 
+             id CDATA #REQUIRED
+             tipo_clase CDATA #IMPLIED
+			 paginas CDATA #IMPLIED
+  >
+  <!ELEMENT numero (#PCDATA)>
+  <!ELEMENT seccion_revista (contenido)>
+  <!ATTLIST seccion_revista paginas CDATA #IMPLIED>
+
+  <!-- Definicion etiqueta periodico -->
+
+  <!ELEMENT periodicos (periodico*)>
+  <!ELEMENT periodico (indice, seccion_periodico+)>
+  <!ATTLIST periodico id CDATA #REQUIRED>
+  <!ATTLIST periodico tipo_clase CDATA #IMPLIED>
+  <!ATTLIST periodico fecha_publicacion CDATA #REQUIRED>
+  <!ATTLIST seccion_periodico tipo CDATA #IMPLIED>
+  <!ELEMENT seccion_periodico (articulo*, contenido_periodico)>
+  <!ELEMENT articulo (#PCDATA)>
+  <!ATTLIST articulo autor CDATA #IMPLIED>
+  <!ELEMENT contenido_periodico (#PCDATA)>
+  <!ATTLIST contenido_periodico referencia CDATA #IMPLIED>
+
+
+  <!-- Definición de comunes -->
+  <!ELEMENT indice (encabezado, apartado+)>
+  <!ELEMENT encabezado (#PCDATA)>
+  <!ELEMENT apartado (#PCDATA)>
+  <!ATTLIST apartado titulo CDATA #REQUIRED>
+  <!ATTLIST apartado pagina CDATA #REQUIRED>
+]>
 
 <biblioteca>
      <!-- Estructura de un <libro> clasificacion = "novela | infantil | didáctico"-->

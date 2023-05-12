@@ -1,4 +1,3 @@
-
 <!ELEMENT biblioteca (libros|revistas|periodicos)*>
 
   <!-- Definicion etiqueta libro -->
@@ -28,7 +27,6 @@
 			 paginas CDATA #IMPLIED
   >
   <!ELEMENT numero (#PCDATA)>
-  <!ELEMENT secciones_revista (seccion_revista+)>
   <!ELEMENT seccion_revista (contenido)>
   <!ATTLIST seccion_revista paginas CDATA #IMPLIED>
 
